@@ -3,7 +3,7 @@ name: ksjsbpy
 on:
     workflow_dispatch:
     schedule:
-        - cron: "1 0,8-18 * * *"
+        - cron: "*/3 0-9 * * *"
     watch:
         types: [started]
    
@@ -25,5 +25,5 @@ jobs:
       env: 
         ksjsbCookie: ${{ secrets.KUAISHOU }} # secrets_id 提供
       run: | 
-        sleep $(($RANDOM%1800))
+        sleep $(($RANDOM%10))
         python Kuaishou.py
